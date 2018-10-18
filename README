@@ -1,0 +1,11 @@
+This chat application allows a client to communicate with server and the server can inreturn communicate with the client.
+This code was executed on a single linux machine,running the kali distribution.
+The code will not run on a windows box.
+
+#.................................................................#
+To run the code 
+just use the gcc compiler that ships with your linux distribution ,(gcc -o output code.c)
+Then run the object code ie ./output
+The server must be running before you the client ...
+NOTE:The ip address and port number should be changed to what your server will be running...
+if running a single machine just use two terminal windows that will act as two computers
