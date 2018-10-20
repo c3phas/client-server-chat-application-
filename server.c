@@ -7,6 +7,9 @@
 
 #include <netinet/in.h>
 #include <arpa/inet.h>
+
+#define BACKLOG 10
+#define PORT 9002
 int main (int agrc, char **argv)
 {
 	int sockfd,newSockfd,sin_size;
@@ -19,13 +22,13 @@ int main (int agrc, char **argv)
 	
 	}else{
 			serverAddr.sin_family = AF_INET;
-			serverAddr.sin_port = htons(9002);
+			serverAddr.sin_port = htons(PORT);
 			serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
 			memset((&serverAddr.sin_zero),'\0',8);
 			
 			bind(sockfd,(struct sockaddr *)&serverAddr,sizeof(struct sockaddr));
 
-			if ((listen(sockfd,10)) != -1)
+			if ((listen(sockfd,BACKLOG)) != -1)
 			{
 				sin_size = sizeof(struct sockaddr_in);
 				newSockfd = accept(sockfd,(struct sockaddr *)&serverAddr,&sin_size);
@@ -39,7 +42,7 @@ int main (int agrc, char **argv)
 					send(newSockfd,"hello from server",20,0);
 					
 						while(1){	
-							char action;
+						//	char action;
 							recv(newSockfd,&info,100,0);
 							printf("client:>> %s\n",info);
 							memset(info,'\0',250);
@@ -51,22 +54,14 @@ int main (int agrc, char **argv)
 							memset(&in,'\0',254);
 							printf("\n");
 
-						//	recv(sockfd,&info,sizeof(info),0);
-						//	printf(" client:>>%s\n",info);
-						//	memset(&info,'\0',250);
 
-							if(action == 'q'){
-								printf("quiting the server");
-								exit(0);
 							}
-						}
 				
 				
+			
 				}
 			
-			
-			
-			}else{
+				}	else{
 			
 					perror("listen");
 					exit(2);
