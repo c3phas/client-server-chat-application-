@@ -1,13 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "netheaders.h"
 #include <unistd.h>
-
-#include <sys/socket.h>
-#include <sys/types.h>
-
-#include<netinet/in.h>
-#include<arpa/inet.h>
 
 #include <netdb.h>
 int main( int argc,char **argv)
@@ -98,5 +90,5 @@ int main( int argc,char **argv)
 }/*
 *THE CODE IS WORKING WELL THOUGH AM STILL HAVING ISSUES  *
 *IMPROVE HOW THE CLIENT COMMUNICATES TO SERVER          *
-*DO MORE ON ERROR HANDLING SOME SYSTEM CALLS NEED TO BE HANLED        *
+*DO MORE ON ERROR HANDLING                               *
 */

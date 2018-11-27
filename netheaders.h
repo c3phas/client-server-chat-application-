@@ -1,5 +1,5 @@
-#ifndef NETWORK_H
-#define NETWORK_H
+#ifndef NETHEADERS_H
+#define NETHEADERS_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
